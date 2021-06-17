@@ -1,15 +1,147 @@
 body {
-    margin: 0;
+    font-family: Rubik;
+    font-style: normal;
+    position: relative;
+    width: 1440px;
 }
 
-h1{
-    margin: 0;
-    text-align: center;
-    font-size: 50px;
+header{
+    position: relative;
+    width: 1180px;
+    height: 40px;
+    left: 130px;
+    top: 32px;
+}
+.logo{
+    position: absolute;
+    left: 0%;
+    right: 84.58%;
+    top: 0%;
+    bottom: 10%;
 }
 
-p{
+.search\/normal{
+    position: absolute;
+    left: 32.97%;
+    right: 32.97%;
+    top: 27.5%;
+    bottom: 10%;
+}
+
+.input\/normal{
+    position: absolute;
+    left: 0%;
+    right: 20.4%;
+    top: 0%;
+    bottom: 0%;
+}
+
+.search{
+    position: absolute;
+    left: 0%;
+    right: 81.25%;
+    top: 0%;
+    bottom: 24%;
+
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #828282;
+}
+
+.line{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 100%;
+    bottom: 0%;
+    border-bottom: 2px solid #333333;
+}
+
+.find{
+    position: absolute;
+    left: 87.56%;
+    right: 0%;
+    top: 0%;
+    bottom: 24%;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #E5261E;
+}
+
+.button\/normal{
+    position: absolute;
+    width: 113px;
+    height: 38px;
+    left: 1067px;
+    top: 2px;
+    background: #E5261E;
+    border-radius: 5%;
+}
+
+.login{
+    position: absolute;
+    width: 49px;
+    left: calc(50% - 49px/2);
+    top: 23.68%;
+    bottom: 26.32%;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
     text-align: center;
-    margin: 0;
-    font-size: 40px;
+    color: #FFFFFF;
+}
+
+footer{
+    position: relative;
+    width: 1440px;
+    height: 120px;
+    left: 0px;
+    top: 560px;
+    background: #F2F2F2;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.FooterLogo{
+    position: absolute;
+    width: 31.99px;
+    height: 64px;
+    left: 130.03px;
+    top: 28px;
+}
+
+.FooterText1{
+    position: absolute;
+    width: 940px;
+    height: 19px;
+    left: 202px;
+    top: 22px;
+    font-weight: normal;
+    color: #333333;
+}
+
+.FooterText2{
+    position: absolute;
+    width: 940px;
+    height: 19px;
+    left: 202px;
+    top: 47px;
+    font-weight: normal;
+    color: #333333;
+}
+
+.FooterText3{
+    position: absolute;
+    width: 940px;
+    height: 19px;
+    left: 202px;
+    top: 76px;
+    font-weight: 500;
+    color: #1F4766;
 }
