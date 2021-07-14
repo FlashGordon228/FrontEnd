@@ -6,27 +6,246 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/style.css">
+  <script src="js/script.js"></script>
   <title>FrontEnd</title>
 </head>
 <body>
   <header>
-    <img src="images/logo.svg" class="logo">
-    <div class="search/normal">
-      <div class="input/normal">
-        <b class="search">Поиск...</b>
-        <div class="line"></div>
-      </div>
-      <b class="find">Найти</b>
-    </div>
-    <div class="button/normal">
-      <b class="login">Войти</b>
-    </div>
+    <img src="images/logo.svg">
+    <form class="search">
+      <input id="input" type="text" placeholder="Поиск..." class="input" oninput="Search()">
+      <button type="submit" class="button">Найти</button>
+    </form>
+    <div class="enter">
+			<div id="user"></div>
+			<button id="exit" class="logout hide" onclick="exit()">Выйти</button>
+			<button id="enter" class="login hide" onclick="enter()">Войти</button>
+		</div>
   </header>
+  <div class="tabs">
+    <a id="first" onclick="films()" href="#" class="choose active">Фильмы</a>
+    <a id="second" onclick="tv()" href="#" class="choose">Телеканалы</a>
+  </div>
+  <main id="page-films" class="page-films">
+    <div class="new">
+      <img src="Images/New.svg">
+      <ul id="movies" class="movies">
+        <li>
+          <div class="container">
+            <img src="Images/film1.svg">
+            <div class="container_text">
+              <p>В новом выпуске ми-ми-мишки изобретут машину сна,
+                а Дракоша Тоша научит завязывать шнурки. Также зрители
+                увидят новые серии мультфильмов «Четверо в кубе»,
+                «Лео и Тиг» и совершенно новый мультсериал
+                «Снежная королева: Хранители чудес».</p>
+            </div>
+          </div>
+          <p>Мульт в кино. Выпуск №103. Некогда грустить!</p>
+        </li>
+        <li>
+          <div class="container">
+            <img src="Images/film2.svg">
+            <div class="container_text">
+              <p>Предстоящий художественный фильм 2022 года режиссёра
+                Мэтта Ривза с Робертом Паттинсоном в главной роли.
+                Перезапуск серии фильмов о Бэтмене. Сценарий написали
+                Ривз и Питер Крэйг по комиксам DC о супергерое Бэтмене.</p>
+            </div>
+          </div>
+          <p>Новый Бэтмен</p>
+        </li>
+        <li>
+          <div class="container">
+            <img src="Images/film3.svg">
+            <div class="container_text">
+              <p>Фильм повествует о череде событий,
+                 произошедших в Голливуде в 1969 году,
+                  на закате его «золотого века». Известный
+                   актер Рик Далтон и его дублер Клифф Бут
+                    пытаются найти свое место в стремительно
+                     меняющемся мире киноиндустрии.</p>
+            </div>
+          </div>
+          <p>Однажды... в Голливуде</p>
+        </li>
+        <li>
+          <div class="container">
+            <img src="Images/film4.svg">
+            <div class="container_text">
+              <p>Танцовщицы элитного стриптиз-клуба,
+                клиенты которого — известные финансисты с
+                Уолл-Стрит, привыкли к большим заработкам и
+                роскошной жизни. Но после финансового кризиса
+                2008 года посетителей в клубе заметно поубавилось,
+                и деньги к девушкам уже не текут рекой. Тяжёлые времена
+                требуют отчаянных мер, и бывшие танцовщицы решаются на авантюрный шаг.</p>
+            </div>
+          </div>
+          <p>Стриптизёрши</p>
+        </li>
+      </div>
+    </div>
+    <div class="genres">
+      <span>Жанры</span>
+      <ul class="genre">
+        <li><img src="Images/comedy.svg" class="genre1"></li>
+        <li><img src="Images/drama.svg" class="genre1"></li>
+        <li><img src="Images/fantastic.svg" class="genre1"></li>
+        <li><img src="Images/horrors.svg" class="genre1"></li>
+      </ul>
+    </div>
+  </main>
+  <main id="page-tv" class="page-tv">
+		<ul class="channels">
+			<li>
+				<div class="channel">
+					<div class="logo-tv">
+						<img src="Images/1chanel.svg">
+					</div>
+					<div class="info-channel">
+						<span class="channelname">Первый канал</span>
+						<ul class="channels">
+							<li class="redtext">
+								<span>13:00</span>
+								<span class="info">Новости (с субтитрами)</span>
+							</li>
+							<li class="blacktext">
+								<span>14:00</span>
+								<span class="info">Давай поженимся</span>
+							</li>
+							<li class="blacktext">
+								<span>15:00</span>
+								<span class="info">Другие новости</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="channel">
+					<div class="logo-tv">
+						<img src="Images/2x2.svg">
+					</div>
+					<div class="info-channel">
+						<span class="channelname">2x2</h3>
+						<ul class="channels">
+							<li class="redtext">
+								<span>13:00</span>
+								<span class="info">МУЛЬТ ТВ. Сезон 4, 7 серия</span>
+							</li>
+							<li class="blacktext">
+								<span>14:00</span>
+								<span class="info">ПОДОЗРИТЕЛЬНАЯ СОВА. Сезон 7, 7 серия</span>
+							</li>
+							<li class="blacktext">
+								<span>15:00</span>
+								<span class="info">БУРДАШЕВ. Сезон 1, 20 серия</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="channel">
+					<div class="logo-tv">
+						<img src="Images/rbk.svg">
+					</div>
+					<div class="info-channel">
+						<span class="channelname">РБК</h3>
+						<ul class="channels">
+							<li class="redtext">
+								<span>13:00</span>
+								<span class="info">ДЕНЬ. Горючая смесь:
+                  как бороться с суррогатом на АЗС</span>
+							</li>
+							<li class="blacktext">
+								<span>14:00</span>
+								<span class="info">ДЕНЬ. Главные темы</span>
+							</li>
+							<li class="blacktext">
+								<span>15:00</span>
+								<span class="info">Главные новости</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="channel">
+					<div class="logo-tv">
+						<img src="Images/amedia.svg">
+					</div>
+					<div class="info-channel">
+						<span class="channelname">AMEDIA PREMIUM</span>
+						<ul class="channels">
+							<li class="redtext">
+								<span>13:00</span>
+								<span class="info">Клиент всегда мёртв</span>
+							</li>
+							<li class="blacktext">
+								<span>14:00</span>
+								<span class="info">Голодные игры: Сойка-пересмешница. Часть I</span>
+							</li>
+							<li class="blacktext">
+								<span>15:00</span>
+								<span class="info">Секс в большом городе</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+      <li>
+				<div class="channel">
+					<div class="logo-tv">
+						<img src="Images/1chanel.svg">
+					</div>
+					<div class="info-channel">
+						<span class="channelname">Первый канал</span>
+						<ul class="channels">
+							<li class="redtext">
+								<span>13:00</span>
+								<span class="info">Новости (с субтитрами)</span>
+							</li>
+							<li class="blacktext">
+								<span>14:00</span>
+								<span class="info">Давай поженимся</span>
+							</li>
+							<li class="blacktext">
+								<span>15:00</span>
+								<span class="info">Другие новости</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</main>
   <footer>
     <img src="images/FooterLogo.svg" class="FooterLogo">
-    <b class="FooterText1">426057, Россия, Удмуртская Республика, г. Ижевск, ул. Карла Маркса, 246 (ДК «Металлург»)</b>
-    <b class="FooterText2">+7 (3412) 93-88-61, 43-29-29</b>
-    <b class="FooterText3">htc-cs.ru</b>
+    <div class="FooterText">
+      <span>426057, Россия, Удмуртская Республика,
+        г. Ижевск, ул. Карла Маркса, 246 (ДК «Металлург»)</span>
+      <span>+7 (3412) 93-88-61, 43-29-29</span>
+      <span class="FooterText1"><a href="https://htc-cs.ru/">htc-cs.ru</a></span>
+    </div>
   </footer>
+
+  <div id="wrapper" class="wrapper">
+		<div class="modal-wrapper">
+			<div class="modal-window">
+				<div class="form">
+					<span class="loginbutton">Вход</span>
+					<input id="login" type="text" placeholder="Логин" maxlength="14" oninput="long_login()">
+					<input id="password" type="password" placeholder="Пароль" maxlength="14" oninput="long_pass()">
+					<div class="remember">
+						<input class="check" type="checkbox" name="" id="radio"><label>Запомнить</label>
+					</div>
+					<button id="button_id_enter_wrapper" class="login" onclick="login()">Войти</button>
+				</div>
+			</div>
+		</div>
+		<div class="background"></div>
+	</div>
 </body>
 </html>
