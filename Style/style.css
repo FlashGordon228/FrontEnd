@@ -141,8 +141,10 @@ header{
   right: 0;
   bottom: 0;
   top: 0;
-  width: 280px;
-  height: 370px;
+  padding: 16px;
+  padding-right: 16px;
+  width: 248px;
+  height: 338px;
   border-radius: 8px;
   background-color: #333333;
   color: #f2f2f2;
@@ -155,6 +157,11 @@ header{
   -ms-transition: all 0.7s ease-in-out;
   -o-transition: all 0.7s ease-in-out;
   transition: all 0.7s ease-in-out;
+}
+
+.container_text p{
+  margin: 0;
+  padding: 0;
 }
 
 .container:hover .container_text {
@@ -234,7 +241,7 @@ header{
 	list-style-type: none;
 	padding: 0;
 	margin-top: 0;
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .channel{
@@ -246,6 +253,19 @@ header{
 	background: #F2F2F2;
 	border-radius: 8px;
 	padding-top:0;
+  margin-bottom: 16px;
+}
+
+.channel_last{
+  display:flex;
+	flex-direction:row;
+	align-items:center;
+	height: 162px;
+	max-width: 1180px;
+	background: #F2F2F2;
+	border-radius: 8px;
+	padding-top:0;
+  margin-bottom: 0;
 }
 
 .info-channel{

@@ -66,19 +66,39 @@ function login(){
 		alert("Вы не ввели логин!")
 	else if(pass == "")
 		alert("Вы не ввели пароль!")
-	else{		
-		let login_mas = login.split(' ');
-		if(login_mas.length > 1)
-			user_name = login_mas[0] + " " + login_mas[1][0] + ".";
-		else
-			user_name=login;
-		let wrapper = document.getElementById("wrapper").classList;
-		wrapper.remove("modal-wrapper-click");
-		let user = document.getElementById("user");
-		user.innerHTML = user_name.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-		let check_box = document.getElementById("radio");
-		if(check_box.checked){
-			localStorage.setItem(user_name,pass);
+	else{
+		let check = localStorage.getItem(login);
+		if (check){
+			if (check == pass)
+			{
+				let login_mas = login.split(' ');
+				if(login_mas.length > 1)
+					user_name = login_mas[0] + " " + login_mas[1][0] + ".";
+				else
+					user_name=login;
+				let wrapper = document.getElementById("wrapper").classList;
+				wrapper.remove("modal-wrapper-click");
+				let user = document.getElementById("user");
+				user.innerHTML = user_name.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+			}
+			else{
+				alert('Неверный пароль!');
+			}
+		}
+		else{
+			let login_mas = login.split(' ');
+			if(login_mas.length > 1)
+				user_name = login_mas[0] + " " + login_mas[1][0] + ".";
+			else
+				user_name=login;
+			let wrapper = document.getElementById("wrapper").classList;
+			wrapper.remove("modal-wrapper-click");
+			let user = document.getElementById("user");
+			user.innerHTML = user_name.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+			let check_box = document.getElementById("radio");
+			if(check_box.checked){
+				localStorage.setItem(user_name,pass);
+			}
 		}
 	}
 	document.getElementById("login").value="";
@@ -86,10 +106,9 @@ function login(){
 }
 
 function Search(){
-	
-	let elasticItems = document.querySelectorAll(".movies li"); 
+	let elasticItems = document.querySelectorAll(".label");
 	elasticItems.forEach(function(elem){  
-		elem.classList.remove("hide");	
+		elem.parentNode.classList.remove("hide");			
 	});
 	let val = document.getElementById("input").value.trim().toLowerCase(); 
 	let el = document.getElementById("movies").classList;
@@ -97,16 +116,16 @@ function Search(){
 	if(val != ""){ 
 		elasticItems.forEach(function(elem){ 
 			if(elem.innerText.toLowerCase().search(val) == -1) { 
-				elem.classList.add("hide"); 
+				elem.parentNode.classList.add("hide"); 
 			}
 			else{
 				i++;
 				elem.classList.remove("hide"); 
 				if(i != 1){
-					elem.classList.add("flex-margin"); 
+					elem.parentNode.classList.add("flex-margin"); 
 				}
 				else{
-					elem.classList.remove("flex-margin"); 
+					elem.parentNode.classList.remove("flex-margin"); 
 				}
 			}
 		});
@@ -114,8 +133,8 @@ function Search(){
 	}
 	else {
 		elasticItems.forEach(function(elem){
-			elem.classList.remove("hide");
-			elem.classList.remove("flex-margin");
+			elem.parentNode.classList.remove("hide");
+			elem.parentNode.classList.remove("flex-margin");
 		});
 		el.remove("flex-start");
 	}
@@ -123,23 +142,27 @@ function Search(){
 }
 
 function long_login(){
-	let login = document.getElementById("login").loginue;
+	let login = document.getElementById("login").value;
 	let login2;
 	let i=0;
 	if(login.length > 13){
-		alert("Максимальная длина ввода данных 13 символов");
+		notification();
 		login2 = login.slice(0,-1);
-		document.getElementById("login").loginue = login2;
+		document.getElementById("login").value = login2;
 	}
 }
 
 function long_pass(){
-	let pass = document.getElementById("password").passue;
+	let pass = document.getElementById("password").value;
 	let pass2;
 	let i=0;
 	if(pass.length > 13){
-		alert("Максимальная длина ввода данных 13 символов");
+		notification();
 		pass2 = pass.slice(0,-1);
-		document.getElementById("password").passue = pass2;
+		document.getElementById("password").value = pass2;
 	}
+}
+
+function notification(){
+	alert("Максимальная длина ввода данных 13 символов");
 }
